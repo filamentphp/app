@@ -279,6 +279,8 @@ public function panel(Panel $panel): Panel
 }
 ```
 
+Before these [assets](../support/assets) can be used, you'll need to run `php artisan filament:assets`.
+
 ## Applying middleware
 
 You can apply extra middleware to all routes by passing an array of middleware classes to the `middleware()` method in the configuration:
