@@ -115,6 +115,20 @@ public function panel(Panel $panel): Panel
 }
 ```
 
+If you'd like to set the max content width for pages of the type `SimplePage`, like login and registration pages, you may do so using the `simplePageMaxContentWidth()` method. The default is `Large`:
+
+```php
+use Filament\Panel;
+use Filament\Support\Enums\MaxWidth;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        // ...
+        ->simplePageMaxContentWidth(MaxWidth::Small);
+}
+```
+
 ## Lifecycle hooks
 
 Hooks may be used to execute code during a panel's lifecycle. `bootUsing()` is a hook that gets run on every request that takes place within that panel. If you have multiple panels, only the current panel's `bootUsing()` will be run. The function gets run from middleware, after all service providers have been booted:
@@ -230,7 +244,7 @@ use Filament\Resources\Pages\CreateRecord;
 class CreatePost extends CreateRecord
 {
     protected ?bool $hasDatabaseTransactions = false;
-    
+
     // ...
 }
 ```
@@ -254,7 +268,7 @@ use Filament\Resources\Pages\CreateRecord;
 class CreatePost extends CreateRecord
 {
     protected ?bool $hasDatabaseTransactions = true;
-    
+
     // ...
 }
 ```
