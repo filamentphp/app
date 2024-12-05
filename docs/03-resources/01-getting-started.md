@@ -544,4 +544,4 @@ public static function getPages(): array
 }
 ```
 
-Deleting a page will not delete any actions that link to that page. Any actions will open a modal instead of sending the user to the non-existant page. For instance, the `CreateAction` on the List page, the `EditAction` on the table or View page, or the `ViewAction` on the table or Edit page. If you want to remove those buttons, you must delete the actions as well.
+Deleting a page will not delete any actions that link to that page. Any actions will open a modal instead of sending the user to the non-existent page. For instance, the `CreateAction` on the List page, the `EditAction` on the table or View page, or the `ViewAction` on the table or Edit page. If you want to remove those buttons, you must delete the actions as well.
