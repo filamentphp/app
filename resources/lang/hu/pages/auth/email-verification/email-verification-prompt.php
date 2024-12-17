@@ -27,7 +27,7 @@ return [
 
         'notification_resend_throttled' => [
             'title' => 'Túl sok újraküldési kísérlet',
-            'body' => 'Kérjük, hogy próbáld meg újra :second másodperc múlva.',
+            'body' => 'Kérjük, hogy próbáld meg újra :seconds másodperc múlva.',
         ],
 
     ],
