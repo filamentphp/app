@@ -23,6 +23,7 @@
         <x-filament::input
             autocomplete="off"
             inline-prefix
+            maxlength="1000"
             :placeholder="__('filament-panels::global-search.field.placeholder')"
             type="search"
             wire:key="global-search.field.input"

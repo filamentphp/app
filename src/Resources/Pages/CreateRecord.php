@@ -15,6 +15,7 @@ use Filament\Support\Facades\FilamentView;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\HasOneOrManyThrough;
 use Illuminate\Support\Js;
 use Throwable;
 
@@ -182,7 +183,7 @@ class CreateRecord extends Page
     {
         $relationship = static::getResource()::getTenantRelationship($tenant);
 
-        if ($relationship instanceof HasManyThrough) {
+        if ($relationship instanceof (class_exists(HasOneOrManyThrough::class) ? HasOneOrManyThrough::class : HasManyThrough::class)) {
             $record->save();
 
             return $record;

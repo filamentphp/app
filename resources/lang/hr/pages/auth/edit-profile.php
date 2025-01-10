@@ -7,7 +7,7 @@ return [
     'form' => [
 
         'email' => [
-            'label' => 'Email adresa',
+            'label' => 'Adresa e-pošte',
         ],
 
         'name' => [
