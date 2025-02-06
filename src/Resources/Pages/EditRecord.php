@@ -116,10 +116,12 @@ class EditRecord extends Page
      */
     public function refreshFormData(array $attributes): void
     {
-        $this->data = [
+        $data = [
             ...$this->data,
             ...Arr::only($this->getRecord()->attributesToArray(), $attributes),
         ];
+
+        $this->form->fill($data);
     }
 
     /**
