@@ -71,29 +71,6 @@
 
         {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::STYLES_AFTER, scopes: $livewire->getRenderHookScopes()) }}
 
-        @if (! filament()->hasDarkMode())
-            <script>
-                localStorage.setItem('theme', 'light')
-            </script>
-        @elseif (filament()->hasDarkModeForced())
-            <script>
-                localStorage.setItem('theme', 'dark')
-            </script>
-        @else
-            <script>
-                const theme = localStorage.getItem('theme') ?? @js(filament()->getDefaultThemeMode()->value)
-
-                if (
-                    theme === 'dark' ||
-                    (theme === 'system' &&
-                        window.matchMedia('(prefers-color-scheme: dark)')
-                            .matches)
-                ) {
-                    document.documentElement.classList.add('dark')
-                }
-            </script>
-        @endif
-
         {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::HEAD_END, scopes: $livewire->getRenderHookScopes()) }}
     </head>
 
@@ -121,6 +98,29 @@
                 window.Echo = new window.EchoFactory(@js(config('filament.broadcasting.echo')))
 
                 window.dispatchEvent(new CustomEvent('EchoLoaded'))
+            </script>
+        @endif
+
+        @if (! filament()->hasDarkMode())
+            <script>
+                localStorage.setItem('theme', 'light')
+            </script>
+        @elseif (filament()->hasDarkModeForced())
+            <script>
+                localStorage.setItem('theme', 'dark')
+            </script>
+        @else
+            <script>
+                var theme = localStorage.getItem('theme') ?? @js(filament()->getDefaultThemeMode()->value)
+
+                if (
+                    theme === 'dark' ||
+                    (theme === 'system' &&
+                        window.matchMedia('(prefers-color-scheme: dark)')
+                            .matches)
+                ) {
+                    document.documentElement.classList.add('dark')
+                }
             </script>
         @endif
 
