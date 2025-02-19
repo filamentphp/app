@@ -82,11 +82,11 @@
         @else
             <script>
                 const loadDarkMode = () => {
-                    var theme = localStorage.getItem('theme') ?? @js(filament()->getDefaultThemeMode()->value)
+                    window.theme = localStorage.getItem('theme') ?? @js(filament()->getDefaultThemeMode()->value)
 
                     if (
-                        theme === 'dark' ||
-                        (theme === 'system' &&
+                        window.theme === 'dark' ||
+                        (window.theme === 'system' &&
                             window.matchMedia('(prefers-color-scheme: dark)')
                                 .matches)
                     ) {
